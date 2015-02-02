@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>AGT Plus Vote App</title>
+
+    <!-- Sweet Alert -->
+    <script src="js/lib/sweet-alert.min.js"></script>
+    <link href="css/sweet-alert.css" type="text/css" rel="stylesheet">
+
+    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- Installing Firebase -->
+    <script src="js/lib/firebase.js"></script>
+
+    <!-- Installing jQuery -->
+    <script src="js/lib/jquery-1.11.2.min.js"></script>
+
+    <!-- JS main app -->
+    <script src="js/vote.js"></script>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+</head>
+<body>
+<div id="content" class="container">
+    <div class="rightCol">
+        <img class="main-logo" src="img/logo.jpg">
+
+        <h3 class="vote-question">Оцените обслуживание в нашей
+            компании:
+        </h3>
+            <div class="voteDiv">
+                <button id="inc1" class="btn btn-primary btn-vote best">Хорошо</button>
+                <button id="inc2"  class="btn btn-primary btn-vote good">Нормально</button>
+                <button id="inc3" class="btn btn-primary btn-vote bad">Плохо</button>
+            </div>
+
+
+        <!--<h4>Написать отзыв</h4>-->
+        <!--<input type="text" id="custom" /><button id="customButton">add</button>-->
+<!--<div id="show"></div>-->
+        <!--<pre id="data"></pre>-->
+
+    </div>
+</div>
+</body>
+</html>

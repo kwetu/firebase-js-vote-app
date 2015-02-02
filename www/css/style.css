@@ -1,0 +1,167 @@
+body {
+    background: url("../img/main-bg.jpg") repeat-x;
+}
+.container {width:99%}
+.rightCol {width: 100%; float: left; padding: 10px}
+.chart {
+    height:300px;
+    width:500px;
+    border:1px inset black;
+    padding:5px;
+}
+.btn {
+    padding: 3px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.w200 {width:200px;}
+.green {background: #51a351; color: #ffffff}
+.blue {background: #0480be; color: #FFFFFF}
+.yellow {background: #b38300; color: #ffffff}
+
+
+
+.selectPoll {
+    clear: both;
+    background: #e1ebb3;
+    padding: 10px;
+    border: 1px solid #b38300;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+}
+.pollSelectBtn {
+    width:120px;
+    height:30px;
+    overflow: hidden;
+    float: left;
+}
+
+.voteDiv {
+    margin: 0 3px;
+    text-align: center;
+    margin-top: 26px;
+}
+
+.rightCol {
+    height: 100%;
+    width: 100%;
+    margin:10px;
+    text-align: center;
+    display:table-cell;
+    vertical-align:middle;
+}
+
+
+.vote-question {
+    font-size: 56px;
+    text-align: center;
+    display: inline;
+    margin-right: 10px;
+}
+
+.main-logo {
+    width: 100px;
+    margin-right: 18px;
+    float: left;
+}
+.btn-vote {
+    /* font-size: 30px; */
+    font-size: 40px;
+    display: block;
+    margin: 0 auto;
+    width: 603px;
+    padding: 17px;
+    margin-bottom: 10px;
+}
+
+.logo {
+    display: inline;
+}
+
+.best, .good, .bad  {
+    /*width:200px;*/
+    height: 100px;
+    left:210px;
+    top:-64px;
+}
+
+.best:disabled, .good:disabled, .bad:disabled  {
+    background-color: #e70500;
+    opacity: 0.9;
+}
+
+.best {
+    background: transparent url("../img/smiles/smile1.jpg") no-repeat;
+    background-color: #337ab7;
+
+}
+
+.good {
+    background: transparent url("../img/smiles/smile2.jpg") no-repeat;
+    background-color: #337ab7;
+
+}
+
+.bad {
+    background: transparent url("../img/smiles/smile3.jpg") no-repeat;
+    background-color: #337ab7;
+
+}
+
+body {
+    background-size: cover;
+    font-size: 14px;
+}
+
+.block {
+    color: #000;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    background: inherit;
+    position: relative;
+}
+
+.block:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    -webkit-filter: blur(10px) saturate(2);
+}
+
+.title {
+    font-size: 1.4em;
+    font-weight: 300;
+    color: #222;
+    padding: 8px;
+    background: rgba(235,235,235,0.85);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.content {
+    padding: 8px;
+    background: rgba(255,255,255,0.66);
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+}
+
+button.confirm.activated, button.confirm {
+    font-size: 41px;
+    /* width: 228px; */
+    padding-left: 50px;
+    padding-right: 50px;
+}
