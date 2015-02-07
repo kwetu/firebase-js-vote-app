@@ -10,8 +10,8 @@
     <link href="css/sweet-alert.css" type="text/css" rel="stylesheet">
 
     <link href="css/lib/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
 
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -22,6 +22,8 @@
 
     <!-- Installing jQuery -->
     <script src="js/lib/jquery-1.11.2.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
     <!-- JS main app -->
     <script src="js/vote.js"></script>
@@ -40,22 +42,48 @@
     <div class="rightCol">
         <img class="main-logo" src="img/logo.jpg">
 
-        <h3 class="vote-question">Оцените обслуживание в нашей
+        <h1 class="vote-question">Оцените обслуживание в нашей
             компании:
-        </h3>
-            <div class="voteDiv">
-                <button id="inc1" class="btn btn-primary btn-vote best">Хорошо</button>
-                <button id="inc2"  class="btn btn-primary btn-vote good">Нормально</button>
-                <button id="inc3" class="btn btn-primary btn-vote bad">Плохо</button>
+        </h1>
+
+        <div class="voteDiv">
+            <button id="inc1" class="btn btn-success btn-vote best">Хорошо</button>
+            <button id="inc2" class="btn btn-danger btn-vote good">Нормально</button>
+            <button id="inc3" class="btn btn-primary btn-vote bad">Плохо</button>
+        </div>
+
+        <!-- Отзыв о работе -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">написать отзыв</button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Отзыв о работе компании AGT Plus</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="control-label">Ваше имя:</label>
+                            <input type="text" class="form-control" id="nameInput">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Отзыв:</label>
+                            <textarea class="form-control" id="messageInput"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                    <button id="submit" type="button" class="btn btn-primary">Отправить</button>
+                </div>
             </div>
-
-
-        <!--<h4>Написать отзыв</h4>-->
-        <!--<input type="text" id="custom" /><button id="customButton">add</button>-->
-<!--<div id="show"></div>-->
-        <!--<pre id="data"></pre>-->
+        </div>
+    </div>
+        <!-- /Отзыв о работе -->
 
     </div>
-</div>
+    </div>
 </body>
 </html>

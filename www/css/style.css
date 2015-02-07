@@ -1,28 +1,37 @@
 body {
     background: url("../img/main-bg.jpg") repeat-x;
+    background-size: cover;
+    font-size: 14px;
 }
-.container {width:99%}
-.rightCol {width: 100%; float: left; padding: 10px}
+
+/* Logo */
+.main-logo {
+    width: 100px;
+    margin-right: 18px;
+    float: left;
+}
+
+.logo {
+    display: inline;
+}
+
+/* Content */
+.container {
+    width: 99%
+}
+
+.rightCol {
+    width: 100%;
+    float: left;
+    padding: 10px
+}
+
 .chart {
-    height:300px;
-    width:500px;
-    border:1px inset black;
-    padding:5px;
+    height: 300px;
+    width: 500px;
+    border: 1px inset black;
+    padding: 5px;
 }
-.btn {
-    padding: 3px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.w200 {width:200px;}
-.green {background: #51a351; color: #ffffff}
-.blue {background: #0480be; color: #FFFFFF}
-.yellow {background: #b38300; color: #ffffff}
-
-
 
 .selectPoll {
     clear: both;
@@ -34,9 +43,10 @@ body {
     border-radius: 5px;
 
 }
+
 .pollSelectBtn {
-    width:120px;
-    height:30px;
+    width: 120px;
+    height: 30px;
     overflow: hidden;
     float: left;
 }
@@ -44,83 +54,33 @@ body {
 .voteDiv {
     margin: 0 3px;
     text-align: center;
-    margin-top: 26px;
+    margin-top: 21px;
 }
 
 .rightCol {
     height: 100%;
     width: 100%;
-    margin:10px;
+    margin-top: 5px;
     text-align: center;
-    display:table-cell;
-    vertical-align:middle;
+    display: table-cell;
+    vertical-align: middle;
 }
-
 
 .vote-question {
     font-size: 56px;
-    text-align: center;
-    display: inline;
-    margin-right: 10px;
-}
-
-.main-logo {
-    width: 100px;
-    margin-right: 18px;
-    float: left;
-}
-.btn-vote {
-    /* font-size: 30px; */
-    font-size: 40px;
-    display: block;
+    font: bold 56px arial, sans-serif;
+    color: #4D4444;
+    text-shadow: 1px 1px 1px rgba(142, 118, 123, 0.5);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
     margin: 0 auto;
-    width: 603px;
-    padding: 17px;
-    margin-bottom: 10px;
-}
-
-.logo {
-    display: inline;
-}
-
-.best, .good, .bad  {
-    /*width:200px;*/
-    height: 100px;
-    left:210px;
-    top:-64px;
-}
-
-.best:disabled, .good:disabled, .bad:disabled  {
-    background-color: #e70500;
-    opacity: 0.9;
-}
-
-.best {
-    background: transparent url("../img/smiles/smile1.jpg") no-repeat;
-    background-color: #337ab7;
-
-}
-
-.good {
-    background: transparent url("../img/smiles/smile2.jpg") no-repeat;
-    background-color: #337ab7;
-
-}
-
-.bad {
-    background: transparent url("../img/smiles/smile3.jpg") no-repeat;
-    background-color: #337ab7;
-
-}
-
-body {
-    background-size: cover;
-    font-size: 14px;
+    margin-right: 98px;
 }
 
 .block {
     color: #000;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
@@ -144,24 +104,78 @@ body {
     font-weight: 300;
     color: #222;
     padding: 8px;
-    background: rgba(235,235,235,0.85);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    background: rgba(235, 235, 235, 0.85);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 .content {
     padding: 8px;
-    background: rgba(255,255,255,0.66);
+    background: rgba(255, 255, 255, 0.66);
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+/* Vote buttons */
+
+.btn-vote {
+    font-size: 40px;
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+    margin-bottom: 10px;
+}
+
+button.best, button.good, button.bad {
+    height: 98px;
+    padding: 3px;
+    padding-left: 82px;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+.best, .best:active {
+    background: transparent url("../img/smiles/smile1.jpg") no-repeat;
+
+}
+
+.good, .good:active {
+    background: transparent url("../img/smiles/smile3.jpg") no-repeat;
+
+}
+
+.bad, .bad:active {
+    background: transparent url("../img/smiles/smile2.jpg") no-repeat;
+
+}
+
+button.best, .btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
     color: #fff;
-    background-color: #337ab7;
+    background-color: rgb(68, 157, 68);
+    border-color: rgb(57, 132, 57);
+}
+
+button.good, .btn-danger:hover, .btn-danger:focus, .btn-danger.focus, .btn-danger:active, .btn-danger.active, .open > .dropdown-toggle.btn-danger {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+button.bad, .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #C41F22;
+    border-color: #C41F22;
 }
 
 button.confirm.activated, button.confirm {
     font-size: 41px;
-    /* width: 228px; */
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 0 50px;
+}
+
+.best:disabled, .good:disabled, .bad:disabled {
+    background-color: #d9d9d9;
+    opacity: 1;
+    border: groove;
 }
