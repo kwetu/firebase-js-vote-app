@@ -1,15 +1,12 @@
 $(document).ready(function () {
 
-        var fb = new Firebase("https://vote-app.firebaseio.com/Голосование"); //firebase connect
-        var msg = new Firebase("https://vote-app.firebaseio.com/Отзывы"); //firebase connect
+        var fb = new Firebase('https://vote-app.firebaseio.com/'), //firebase connect
+            golos = fb.child('Голосование'),
+                gd = golos.child('Хорошо'),
+                nm = golos.child('Нормально'),
+                bd = golos.child('Плохо');
+        var msg = new Firebase("https://vote-app.firebaseio.com/Отзывы"); //firebase feedback connect
 
-
-        // monitors changes and updates UI
-        //fb.child('counter1').on('value', updateDiv);
-        //fb.child('counter2').on('value', updateDiv);
-        //fb.child('counter3').on('value', updateDiv);
-        //
-        //fb.on('value', updatePre);
 
         // creates a new, incremental records
         $('#inc1').on('click', incId1);
@@ -40,7 +37,7 @@ $(document).ready(function () {
             swal("Спасибо за оценку!", "Ваше мнение важно для нас", "success");
 
             // increment the counter
-            fb.child('Хорошо').transaction(function (currentValue) {
+            gd.child('Голосов').transaction(function (currentValue) {
                 return (currentValue || 0) + 1
             }, function (err, committed, ss) {
                 if (err) {
@@ -49,7 +46,7 @@ $(document).ready(function () {
                 else if (committed) {
                     // if counter update succeeds, then create record
                     // probably want a recourse for failures too
-                    addRecord(ss.val());
+                    //addRecord(ss.val());
                 }
             });
 
@@ -64,7 +61,8 @@ $(document).ready(function () {
             //Sweet Alert
             swal("Спасибо за оценку!", "Ваше мнение важно для нас", "success");
             // increment the counter
-            fb.child('Нормально').transaction(function (currentValue) {
+
+            nm.child('Голосов').transaction(function (currentValue) {
                 return (currentValue || 0) + 1
             }, function (err, committed, ss) {
                 if (err) {
@@ -76,9 +74,8 @@ $(document).ready(function () {
                     addRecord(ss.val());
                 }
             });
+
             blockButton();
-
-
         }
 
         //third
@@ -88,8 +85,7 @@ $(document).ready(function () {
             swal("Спасибо за оценку!", "Ваше мнение важно для нас", "success");
 
 
-            // increment the counter
-            fb.child('Плохо').transaction(function (currentValue) {
+            bd.child('Голосов').transaction(function (currentValue) {
                 return (currentValue || 0) + 1
             }, function (err, committed, ss) {
                 if (err) {
@@ -98,57 +94,74 @@ $(document).ready(function () {
                 else if (committed) {
                     // if counter update succeeds, then create record
                     // probably want a recourse for failures too
-                    addRecord(ss.val());
+                    //addRecord(ss.val());
                 }
             });
+
             blockButton();
 
-        }
-
-        //add new msg to firebase
-        function submitMsg(err, committed) {
-            if (err) { //check errors
-                console.log('msg submiting error');
-                $('#messageInput').val('');
-                $('#nameInput').val('');
-            }
-            else if (committed) { //submit data
-                var name = $('#nameInput').val();
-                var text = $('#messageInput').val();
-                msg.push({name:name, text:text});
-                $('#messageInput').val('');
-                $('#nameInput').val('');
-
-                swal("Спасибо за отзыв!", "Ваше мнение важно для нас", "success"); //sweet alert
-            }
+            //experimental
+            //bd.child('Время оценки').push({
+            //    timestamp: Firebase.ServerValue.TIMESTAMP
+            //});
 
         }
+
+
+
+
+        ////add new msg to firebase
+        //function submitMsg(err, committed) {
+        //    if (err) { //check errors
+        //        console.log('msg submiting error');
+        //        $('#messageInput').val('');
+        //        $('#nameInput').val('');
+        //    }
+        //    else if (committed) { //submit data
+        //        var name = $('#nameInput').val();
+        //        var text = $('#messageInput').val();
+        //        msg.push({name:name, text:text});
+        //        $('#messageInput').val('');
+        //        $('#nameInput').val('');
+        //
+        //        swal("Спасибо за отзыв!", "Ваше мнение важно для нас", "success"); //sweet alert
+        //    }
+        //
+        //}
 
         //add new msg to firebase
         function submitMsg() {
 
-                var name = $('#nameInput').val();
-                var text = $('#messageInput').val();
-                msg.push({name:name, text:text});
+            var name = $('#nameInput').val();
+            var text = $('#messageInput').val();
+
+            if (name && text != "") //check if not empty
+            {
+                msg.push({
+                            name: name,
+                            text: text,
+                            timestamp: Firebase.ServerValue.TIMESTAMP
+                         });
                 $('#messageInput').val('');
                 $('#nameInput').val('');
 
                 swal("Спасибо за отзыв!", "Ваше мнение важно для нас", "success"); //sweet alert
                 $('#exampleModal').modal('hide'); //close modal
+            }
+
+            else {
+                alert("Enter name and msg!")
+            }
 
         }
 
 
-
-
-
-
         // Add a callback that is triggered for each chat message.
-        msg.on('child_added', function (snapshot) {
-            var message = snapshot.val();
-            $('<div/>').text(message.text).prepend($('<em/>').text(message.name+': ')).appendTo($('#messagesDiv'));
-            $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-        });
+        //msg.on('child_added', function (snapshot) {
+        //    var message = snapshot.val();
+        //    $('<div/>').text(message.text).prepend($('<em/>').text(message.name+': ')).appendTo($('#messagesDiv'));
+        //    $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+        //});
 
         function setError(msg) {
             var id = ++errId;

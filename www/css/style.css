@@ -179,3 +179,34 @@ button.confirm.activated, button.confirm {
     opacity: 1;
     border: groove;
 }
+
+.form-control {
+    font-size: 28px;
+    height: 54px;
+
+}
+
+/*Feedback form*/
+
+.control-label {
+    font-size: 18px;
+}
+
+.btn-msg-submit,  .btn-msg-cancel{
+    font-size: 23px;
+}
+
+.btn-msg-submit {
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+button.btn-msg-submit, .btn-msg-submit:hover, .btn-msg-submit:focus, .btn-msg-submit.focus, .btn-msg-submit:active, .btn-msg-submit.active, .open > .dropdown-toggle.btn-msg-submit {
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.modal-footer .btn+.btn {
+    margin-bottom: 0;
+    margin-left: 12px;
+}
