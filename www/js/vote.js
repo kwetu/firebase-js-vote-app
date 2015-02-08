@@ -38,7 +38,7 @@ $(document).ready(function () {
 
             // increment the counter
             gd.child('Голосов').transaction(function (currentValue) {
-                return (currentValue || 0) + 1
+                return (currentValue || 0) + 1;
             }, function (err, committed, ss) {
                 if (err) {
                     setError(err);
@@ -63,7 +63,7 @@ $(document).ready(function () {
             // increment the counter
 
             nm.child('Голосов').transaction(function (currentValue) {
-                return (currentValue || 0) + 1
+                return (currentValue || 0) + 1;
             }, function (err, committed, ss) {
                 if (err) {
                     setError(err);
@@ -86,7 +86,7 @@ $(document).ready(function () {
 
 
             bd.child('Голосов').transaction(function (currentValue) {
-                return (currentValue || 0) + 1
+                return (currentValue || 0) + 1;
             }, function (err, committed, ss) {
                 if (err) {
                     setError(err);
@@ -135,7 +135,7 @@ $(document).ready(function () {
             var name = $('#nameInput').val();
             var text = $('#messageInput').val();
 
-            if (name && text != "") //check if not empty
+            if (name && text !== "") //check if not empty
             {
                 msg.push({
                             name: name,
@@ -150,7 +150,7 @@ $(document).ready(function () {
             }
 
             else {
-                alert("Enter name and msg!")
+                alert("Enter name and msg!");
             }
 
         }
