@@ -5,7 +5,12 @@ $(document).ready(function () {
             gd = golos.child('Хорошо'),
             nm = golos.child('Нормально'),
             bd = golos.child('Плохо'),
-            msg = fb.child("Отзывы"); //firebase feedback connect
+
+            voteGd = gd.child('Голосов'),
+            voteNm = nm.child('Голосов'),
+            voteBd = bd.child('Голосов'),
+
+            msg = fb.child("Отзывы"); //firebase feedback
 
 
         // creates a new, incremental records
@@ -32,7 +37,7 @@ $(document).ready(function () {
         function incId1() {
 
             // increment the counter
-            gd.child('Голосов').transaction(function (currentValue) {
+            voteGd.transaction(function (currentValue) {
                 return (currentValue || 0) + 1;
             }, function (err, committed, ss) {
                 if (err) {
@@ -57,7 +62,7 @@ $(document).ready(function () {
         function incId2() {
 
             // increment the counter
-            nm.child('Голосов').transaction(function (currentValue) {
+            voteNm.transaction(function (currentValue) {
                 return (currentValue || 0) + 1;
             }, function (err, committed, ss) {
                 if (err) {
@@ -81,7 +86,7 @@ $(document).ready(function () {
         function incId3() {
 
             // increment the counter
-            bd.child('Голосов').transaction(function (currentValue) {
+            voteBd.transaction(function (currentValue) {
                 return (currentValue || 0) + 1;
             }, function (err, committed, ss) {
                 if (err) {
@@ -117,7 +122,7 @@ $(document).ready(function () {
                 msg.push({
                     name: name,
                     text: text,
-                    timestamp: Firebase.ServerValue.TIMESTAMP
+                    timestamp: Date.now()
                 });
                 $('#messageInput').val('');
                 $('#nameInput').val('');
@@ -125,6 +130,8 @@ $(document).ready(function () {
                 swal("Дякуємо за відгук!", "Ваша думка важлива для нас", "success");
                 $('#exampleModal').modal('hide'); //close modal
             }
+
+
 
             else {
                 alert("Enter name and message!");
